@@ -37,3 +37,27 @@ describe('Basic', function () {
         assert.propertyVal(d, 'username', '123');
     });
 });
+
+describe('Colons in usernames', function () {
+    var tpl = p('proto://{u}:{p}@domain.tld/foobar/');
+    it('Can handle : in username', function () {
+        var out = tpl({u: 'user:name', p: 'pwd'});
+        assert.propertyVal(out, 'auth', 'user:name:pwd');
+        assert.propertyVal(out, 'username', 'user:name');
+        assert.propertyVal(out, 'password', 'pwd');
+    });
+
+    it('Can handle : in password', function () {
+        var out = tpl({u: 'u', p: 'pass:word'});
+        assert.propertyVal(out, 'auth', 'u:pass:word');
+        assert.propertyVal(out, 'username', 'u');
+        assert.propertyVal(out, 'password', 'pass:word');
+    });
+
+    it('Can handle : in username & password', function () {
+        var out = tpl({u: 'user:name', p: 'pass:word'});
+        assert.propertyVal(out, 'auth', 'user:name:pass:word');
+        assert.propertyVal(out, 'username', 'user:name');
+        assert.propertyVal(out, 'password', 'pass:word');
+    });
+});

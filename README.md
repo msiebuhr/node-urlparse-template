@@ -1,7 +1,9 @@
 urlparse-template
 =================
 
-[url.parse()]() with templating support (via. Bram Stein's [url-template]().
+[url.parse()](http://nodejs.org/docs/latest/api/url.html) with templating
+support (via. Bram Stein's
+[url-template](https://github.com/bramstein/url-template)).
 
 Built for being able to give 'tempalted' URLs in configuration files, that you
 then can fill out + get parsed on demand:
@@ -32,6 +34,14 @@ then can fill out + get parsed on demand:
 It also works without the explicit template function:
 
     var data = utp(templateString, fillData);
+
+## Details
+
+We actually use a fork of `url.parse()` that doesn't call
+`decodeURIComponents()` in the parsed input. This allows us to parse the
+auth-secion in a sane manner, even if users have `:` in their username.
+
+(Yes it does suck to have legacy-systems with lax validation...)
 
 ## License
 
