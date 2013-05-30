@@ -38,8 +38,8 @@ It also works without the explicit template function:
 ## Details
 
 We actually use a fork of `url.parse()` that doesn't call
-`decodeURIComponents()` in the parsed input. This allows us to parse the
-auth-secion in a sane manner, even if users have `:` in their username.
+`decodeURIComponents()` in the parsed data. This allows us to parse the
+auth-section in a sane manner, even if users have `:` in their username.
 
 (Yes it does suck to have legacy-systems with lax validation...)
 
