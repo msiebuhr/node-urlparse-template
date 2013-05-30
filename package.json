@@ -1,0 +1,28 @@
+{
+  "name": "urlparse-template",
+  "version": "0.0.0",
+  "description": "Template-based URL-parsing",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "keywords": [
+    "url",
+    "template",
+    "parsing",
+    "url.parse"
+  ],
+  "author": "Morten Siebuhr",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "~1.6.0",
+    "mocha": "~1.10.0"
+  },
+  "dependencies": {
+    "url-template": "~2.0.1"
+  }
+}
