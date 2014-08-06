@@ -1,6 +1,6 @@
 {
   "name": "urlparse-template",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Template-based URL-parsing",
   "main": "lib/index.js",
   "directories": {
