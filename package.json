@@ -9,7 +9,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "repository": "https://github.com/msiebuhr/node-urlparse-tempate.git",
+  "repository": "https://github.com/msiebuhr/node-urlparse-template.git",
   "keywords": [
     "url",
     "template",
