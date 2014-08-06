@@ -61,3 +61,11 @@ describe('Colons in usernames', function () {
         assert.propertyVal(out, 'password', 'pass:word');
     });
 });
+
+describe('does not touch the non-atomic parts of the parsed url', function () {
+    var tpl = p('http://foo.com/{?url}');
+    it('leaves chars encoded by url-template alone in href', function () {
+        var out = tpl({url: 'http://bar.com/?quux=baz&blah=blerg'});
+        assert.propertyVal(out, 'href', 'http://foo.com/?url=http%3A%2F%2Fbar.com%2F%3Fquux%3Dbaz%26blah%3Dblerg');
+    });
+});
