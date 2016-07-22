@@ -19,8 +19,8 @@
   "author": "Morten Siebuhr",
   "license": "ISC",
   "devDependencies": {
-    "chai": "~1.6.0",
-    "mocha": "~1.10.0"
+    "mocha": "~1.10.0",
+    "unexpected": "^10.15.0"
   },
   "dependencies": {
     "url-template": "~2.0.1"
