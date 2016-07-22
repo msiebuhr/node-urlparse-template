@@ -19,7 +19,7 @@ describe('Basic', function () {
         assert.propertyVal(d, 'slashes', true);
         assert.propertyVal(d, 'username', '123');
     });
-    
+
     it('Two parameters invokes it directly', function () {
         var d = p(
             'proto://{username}:pwd@{sub}.domain.tld',
@@ -36,6 +36,19 @@ describe('Basic', function () {
         assert.propertyVal(d, 'slashes', true);
         assert.propertyVal(d, 'username', '123');
     });
+});
+
+it('should populate the username field even when there is no password', function () {
+    var out = p('smtp://{username}@foo.com/', {username: 'theuser'});
+    assert.propertyVal(out, 'auth', 'theuser');
+    assert.propertyVal(out, 'username', 'theuser');
+});
+
+it('should populate the password field with an empty string when there is a colon before the @', function () {
+    var out = p('smtp://{username}:@foo.com/', {username: 'theuser'});
+    assert.propertyVal(out, 'auth', 'theuser:');
+    assert.propertyVal(out, 'username', 'theuser');
+    assert.propertyVal(out, 'password', '');
 });
 
 describe('Colons in usernames', function () {
